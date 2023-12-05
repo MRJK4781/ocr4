@@ -37,18 +37,12 @@ def start(update,context):
     """Send a message when the command /start is issued."""
     global first
     first=update.message.chat.first_name
-    keybord1 = [[InlineKeyboardButton("Owner 👨‍💻", url=f"https://t.me/{OWNER}"),
-                 InlineKeyboardButton("Tutorial 📺", url="https://youtu.be/7yqjm-DCaXE")]]
-    reply_markup = InlineKeyboardMarkup(keybord1)
     update.message.reply_text('Hi! '+str(first)+' \n\nWelcome to OCR Bot.\n\nJust send a clear image to me and i will recognize the text in the image and send it as a message!\n\nCheck /help for more...\n\nCreate your Own Bot by Watching Tutorial', reply_markup=reply_markup)
 
 def help(update,context):
     """Send a message when the command /help is issued."""
     global first
     first=update.message.chat.first_name
-    keybord1 = [[InlineKeyboardButton("Owner 👨‍💻", url=f"https://t.me/{OWNER}"),
-                 InlineKeyboardButton("Tutorial 📺", url="https://youtu.be/7yqjm-DCaXE")]]
-    reply_markup = InlineKeyboardMarkup(keybord1)
     update.message.reply_text('Hi! '+str(first)+' \n\nFollow these steps...\n➥ First Send me a Clear Image to me \n➥ Select the Language to Extract Selected Language Text in Image \n➥ Extracted Text is Uploaded as Message!', reply_markup=reply_markup)
 
 
@@ -102,7 +96,7 @@ def button(update,context):
     query = update.callback_query
     query.answer()
     query.edit_message_text("Extracting Text....")
-    data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language={query.data}&detectOrientation=True&filetype=JPG&OCREngine=1&isTable=True&scale=True")
+    data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language=eng&detectOrientation=True&filetype=JPG&OCREngine=1&isTable=True&scale=True")
     data=data.json()
     if data['IsErroredOnProcessing']==False:
         message=data['ParsedResults'][0]['ParsedText']
