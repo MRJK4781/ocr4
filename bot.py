@@ -37,7 +37,7 @@ def start(update,context):
     """Send a message when the command /start is issued."""
     global first
     first=update.message.chat.first_name
-    update.message.reply_text('Hi! '+str(first)+' \n\nWelcome to OCR Bot.\n\nJust send a clear image to me and i will recognize the text in the image and send it as a message!\n\nCheck /help for more...)
+    update.message.reply_text('Hi! '+str(first)+' \n\nWelcome to OCR Bot.\n\nJust send a clear image to me and i will recognize the text in the image and send it as a message!\n\nCheck /help for more...')
 
 def help(update,context):
     """Send a message when the command /help is issued."""
