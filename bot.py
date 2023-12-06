@@ -53,40 +53,11 @@ def convert_image(update,context):
         newFile=context.bot.get_file(file_id)
         file= newFile.file_path
         context.user_data['filepath']=file
-        keyboard =  [[InlineKeyboardButton("Arabic", callback_data='ara'),
-                      InlineKeyboardButton("Bulgarian", callback_data='bul'),
-                      InlineKeyboardButton("Chinese", callback_data='chs')
-                     ],
-                     [
-                     InlineKeyboardButton("Croatian", callback_data='hrv'),
-                     InlineKeyboardButton("Danish", callback_data='dan'),
-                     InlineKeyboardButton("Dutch", callback_data='dut')
-                     ],
-                     [
-                     InlineKeyboardButton("English", callback_data='eng'),
-                     InlineKeyboardButton("Finnish", callback_data='fin'),
-                     InlineKeyboardButton("French", callback_data='fre')
-                     ],
-                     [
-                     InlineKeyboardButton("German", callback_data='ger'),
-                     InlineKeyboardButton("Greek", callback_data='gre'),
-                     InlineKeyboardButton("Hungarian", callback_data='hun')
-                     ],
-                     [
-                     InlineKeyboardButton("Korean", callback_data='kor'),
-                     InlineKeyboardButton("Italian", callback_data='ita'),
-                     InlineKeyboardButton("Japanese", callback_data='jpn')
-                     ],
-                     [
-                     InlineKeyboardButton("Polish", callback_data='pol'),
-                     InlineKeyboardButton("Portuguese", callback_data='por'),
-                     InlineKeyboardButton("Russian", callback_data='rus')
-                     ],
-                     [
-                     InlineKeyboardButton("Spanish", callback_data='spa'),
-                     InlineKeyboardButton("Swedish", callback_data='swe'),
-                     InlineKeyboardButton("Turkish", callback_data='tur')
-                     ]]
+        keyboard =  [[
+                      InlineKeyboardButton("English", callback_data='eng'),
+		      InlineKeyboardButton("Chinese", callback_data='chs')
+                     ],     
+                     ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         update.message.reply_text("Select the Language Here 👇", reply_markup=reply_markup)
 
